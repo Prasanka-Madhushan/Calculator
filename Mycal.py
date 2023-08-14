@@ -16,4 +16,8 @@ coverMainFrame.grid()
 MainFrame = Frame (coverMainFrame, bd= 5, pady=2, relief=RIDGE)
 MainFrame.grid()
 
+entDisplay = Entry(MainFrame, font=('Times new roman',19,'bold'),bd=14 ,width=26, bg='lightblue',justify=RIGHT)
+entDisplay.grid(row=0,column=0,columnspan=4,pady=1)
+entDisplay.insert(0, "0")
+
 root.mainloop()
