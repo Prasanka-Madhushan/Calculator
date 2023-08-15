@@ -6,7 +6,7 @@ blank_space = " "
 root.title (50 * blank_space + "My Calculator")
 root.resizable(width= FALSE, height= FALSE)
 root.geometry("438x573+460+40")
-
+#===================================Frame=====================================#
 coverFrame = Frame (root, bd= 20, pady=2, relief=RIDGE)
 coverFrame.grid()
 
@@ -15,7 +15,9 @@ coverMainFrame.grid()
 
 MainFrame = Frame (coverMainFrame, bd= 5, pady=2, relief=RIDGE)
 MainFrame.grid()
+#===================================Frame=====================================#
 
+#=================================Functions===================================#
 class Calculator():
     def __init__(self):
         self.total = 0
@@ -117,7 +119,7 @@ class Calculator():
         self.result = False
         self.current = math.sin(math.radians(float(entDisplay.get())))
         self.display(self.current)
-
+#=================================Functions===================================#
 added_value = Calculator()
 entDisplay = Entry(MainFrame, font=('Times new roman',19,'bold'),bd=14 ,width=26, bg='lightblue',justify=RIGHT)
 entDisplay.grid(row=0,column=0,columnspan=4,pady=1)
@@ -134,7 +136,7 @@ for j in range(3,6):
         btn[i].grid(row= j,column=k,pady=1)
         btn[i]["command"] = lambda x = numpad[i]: added_value.numberEnter(x)
         i+=1
-
+#===========================Buttons==============================#
 btnBackSpace = Button(MainFrame, width=6, height=2, font=('Calibri',16,'bold'),bd=4, text="←",bg='lightblue' , command= added_value.backspace)
 btnBackSpace.grid(row=1 , column=0, pady=1 )
 
@@ -147,7 +149,7 @@ btnClearAll.grid(row=1 , column=2, pady=1 )
 btnPM = Button(MainFrame, width=6, height=2, font=('arial',16,'bold'),bd=4, text=chr(177),bg='lightblue' , command= added_value.mathsPM)
 btnPM.grid(row=1 , column=3, pady=1 )
 
-#===========================#
+#==========================Scientific Buttons================================#
 btnSq = Button(MainFrame, width=6, height=2, font=('Calibri',16,'bold'),bd=4, text="√",bg='lightblue' , command= added_value.squared)
 btnSq.grid(row=2 , column=0, pady=1 )
 
@@ -160,7 +162,9 @@ btntan.grid(row=2 , column=2, pady=1 )
 btnsin = Button(MainFrame, width=6, height=2, font=('arial',16,'bold'),bd=4, text="Sin",bg='lightblue' , command= added_value.sin)
 btnsin.grid(row=2 , column=3, pady=1 )
 
-#=============================================#
+#==========================Scientific Buttons================================#
+
+#==========================Calculation Buttons================================#
 btnAdd = Button(MainFrame, width=6, height=2, font=('arial',16,'bold'),bd=4, text="+",bg='lightblue', command= lambda:added_value.operation("add"))
 btnAdd.grid(row=3 , column=3, pady=1 )
 
@@ -181,5 +185,6 @@ btnDot.grid(row=6 , column=1, pady=1 )
 
 btnEquals = Button(MainFrame, width=6, height=2, font=('arial',16,'bold'),bd=4, text="=",bg='lightblue',command= added_value.sum_of_total)
 btnEquals.grid(row=6 , column=2, pady=1 )
-
+#==========================Calculation Buttons================================#
+#===========================Buttons==============================#
 root.mainloop()
